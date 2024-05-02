@@ -73,7 +73,7 @@
 
   <section class="row py-4 px-lg-4 p-lg-5">
     <div class="col-lg-7 py-4">
-      <h1 class="display-6 fw-bold lh-1 mb-3">Puedes pasarme tu correo</h1>
+      <h3 class="fw-bold lh-1 mb-3">Puedes pasarme tu correo</h3>
       <p class="col-lg-10 fs-4">
         Para mantenernos en contacto
       </p>
