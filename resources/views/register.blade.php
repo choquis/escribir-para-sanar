@@ -83,7 +83,7 @@
   </section>
   @push('scripts')
     <script
-      src="https://www.paypal.com/sdk/js?client-id=ARDMSehyX6QutbsOaFohkzFzTLbpimoZ3hOSbuG8CyUB-RohY9TArnp0IXKdxZoz_hTYd8IlTKy_I478&currency=MXN">
+      src="https://www.paypal.com/sdk/js?client-id=AT_P5QEgAiu1Ljvb43jbPIWSYE-IOpbVLfb25hr3osMr1jWohwO9myIvIXIUz9vuJiBVH3Crh1E2A0qz&currency=MXN">
     </script>
     <script src="{{ asset('js/register.js') }}"></script>
   @endpush
