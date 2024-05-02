@@ -39,7 +39,7 @@ class OrderController extends Controller
     {
         session(['order:index' => url()->full()]);
         $orders = Order::orderBy('created_at', 'desc')
-            ->paginate(3);
+            ->paginate(20);
 
         return view('admin.orders.list', [
             'orders' => $orders

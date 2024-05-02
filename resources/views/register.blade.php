@@ -19,13 +19,14 @@
                 <label class="list-group-item py-3 pe-5" for="{{ 'eventId-' . $event->id }}">
                   <div class="row">
                     <div class="col">
-                      <p class="h4 text-capitalize text-primary">{{ str_replace('.', '', $event->formatted_date) }}</p>
-                      <p class="m-0 text-primary"><small>{{ $event->formatted_time }}</small></p>
+                      <p class="h4 text-capitalize text-primary"><strong>{{ $event->name }}</strong></p>
+                      <p class="h4 text-capitalize text-primary">{{ $event->description }}</p>
+                      <p class="m-0 text-primary"><small>{{ $event->subdescription }}</small></p>
                     </div>
                     <div class="col-5 d-flex justify-content-end align-items-center">
                       <p class="m-0 fs-3 lh-1 text-primary">$
-                        {{ (int) $event->price }}<sup class="fs-6 text-primary">{{ substr($event->price, -2) }}</sup><small
-                          class="fs-6">
+                        {{ (int) $event->price }}<sup
+                          class="fs-6 text-primary">{{ substr($event->price, -2) }}</sup><small class="fs-6">
                           MXN</small></p>
                     </div>
                   </div>
@@ -61,7 +62,8 @@
               </span>
             @enderror
           </div>
-          <p><small>Por favor proporcionanos un nombre para identificarte en el taller y un correo para envíarte el recibo
+          <p><small>Por favor proporcionanos un nombre para identificarte en el taller y un correo para envíarte el
+              recibo
               y las instrucciones de como acceder al taller.</small></p>
         </div>
       </div>
@@ -82,9 +84,7 @@
     </form>
   </section>
   @push('scripts')
-    <script
-      src="https://www.paypal.com/sdk/js?client-id=AY7lLqZrmHOcvgyQDbU0zfZ5jhc9cItLUCzMYbWR5i0GfBE675T5jABhZOpD1rz6Dh-WVTY0-Jxjz6zt&currency=MXN">
-    </script>
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_ID') }}&currency=MXN"></script>
     <script src="{{ asset('js/register.js') }}"></script>
   @endpush
 </x-public-page-layout>

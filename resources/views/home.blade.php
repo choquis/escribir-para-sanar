@@ -1,19 +1,20 @@
 <x-public-page-layout>
   <x-slot:header>
     <header>
-      <img class="header-image header-block" src="{{ asset('images/engin-akyurt-fEG6djtQffM-unsplash-wide.jpg') }}">
+      <img class="header-image header-image-responsivnes"
+        src="{{ asset('images/engin-akyurt-fEG6djtQffM-unsplash-wide.jpg') }}">
       <div class="mask header-block"></div>
       <div class="container header-block d-flex flex-column justify-content-center align-items-start">
         <div class="position-relative overflow-hidden flex-fill align-content-center">
-          <div class="col-sm-12 col-lg-6 my-5 text-left text-shadow">
+          <div class="col-10 col-lg-6 my-5 text-left text-shadow">
             <p class="h3 fw-bold text-light">
               Gracias a la escritura te desbloqueas, emocional y sensorialmente
             </p>
             <p class="h5 text-light">
-              Aprendes a sentir y disfrutar las cosas que antes pasaban desapercibidas para ti
+              Aprendes a sentir y disfrutar las cosas que antes pasaban desapercibidas para ti.
             </p>
             <p class="h5 text-light">
-              Permíteme acompañarte en este proceso de escribir para sanar
+              Permíteme acompañarte en este proceso de escribir para sanar.
             </p>
           </div>
         </div>
@@ -41,8 +42,9 @@
                   <i class="bi bi-calendar2-week fs-1 text-primary"></i>
                 </div>
                 <div class="col">
-                  <p class="h4 text-capitalize text-primary">{{ str_replace('.', '', $event->formatted_date) }}</p>
-                  <p class="m-0"><small>{{ $event->formatted_time }}</small></p>
+                  <p class="h4 text-capitalize text-primary"><strong>{{ $event->name }}</strong></p>
+                  <p class="h4 text-capitalize text-primary">{{ $event->description }}</p>
+                  <p class="m-0"><small>{{ $event->subdescription }}</small></p>
                 </div>
                 <div class="col-3 d-flex justify-content-center align-items-center">
                   <a class="btn btn-sm btn-outline-primary" href="{{ route('register') }}">

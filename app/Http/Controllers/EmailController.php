@@ -32,7 +32,7 @@ class EmailController extends Controller
     {
         session(['email:index' => url()->full()]);
         $emails = Email::orderBy('name', 'asc')
-            ->paginate(3);
+            ->paginate(20);
 
         return view('admin.emails.list', [
             'emails' => $emails

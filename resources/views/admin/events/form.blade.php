@@ -40,6 +40,30 @@
     <div class="offset-sm-0 offset-md-6 offset-lg-8"></div>
 
     <div class="col-sm-12 col-md-6 col-lg-4 my-3">
+      <label for="description" class="form-label">Fechas (en texto)</label>
+      <input type="text" class="form-control" id="description" name="description"
+        value="{{ isset($event) ? old('description', $event->description) : old('description') }}">
+      @error('description')
+        <span class="text-danger">
+          {{ $errors->first('description') }}
+        </span>
+      @enderror
+    </div>
+    <div class="offset-sm-0 offset-md-6 offset-lg-8"></div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 my-3">
+      <label for="subdescription" class="form-label">Horas (en texto)</label>
+      <input type="text" class="form-control" id="subdescription" name="subdescription"
+        value="{{ isset($event) ? old('subdescription', $event->subdescription) : old('subdescription') }}">
+      @error('subdescription')
+        <span class="text-danger">
+          {{ $errors->first('subdescription') }}
+        </span>
+      @enderror
+    </div>
+    <div class="offset-sm-0 offset-md-6 offset-lg-8"></div>
+
+    <div class="col-sm-12 col-md-6 col-lg-4 my-3">
       <label for="date" class="form-label">Fecha</label>
       <input type="date" class="form-control" id="date" name="date"
         value="{{ isset($event) ? old('date', $event->only_date) : old('date') }}">
