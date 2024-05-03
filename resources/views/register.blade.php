@@ -64,9 +64,8 @@
               </span>
             @enderror
           </div>
-          <p><small>Por favor proporcionanos un nombre para identificarte en el taller y un correo para envíarte el
-              recibo
-              y las instrucciones de como acceder al taller.</small></p>
+          <p><small>Por favor compárteme tu nombre para identificarte en el taller y un correo para enviarte el recibo y
+              las instrucciones de cómo ingresar al taller.</small></p>
         </div>
       </div>
       <div class="col-sm-12 col-md-5 col-lg-5 ps-0 ps-md-2">
