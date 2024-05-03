@@ -2,6 +2,8 @@
   <x-slot:header>
     <div class="my-5"></div>
   </x-slot>
+  <x-slot:top>
+  </x-slot>
 
   <section class="row">
     <form class="row g-0" method="POST" action="{{ route('register') }}" name="registration">

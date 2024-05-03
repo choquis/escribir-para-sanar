@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nosotros somos un grupo de escritores y escritoras, nos juntamos para crecer mental y emocionalmente junto con la actividad de la escritura terapéutica. Con este sitio puedes inscribirte a nuestros talleres semanales de escritura terapéutica."/>
+  <meta name="description"
+    content="Nosotros somos un grupo de escritores y escritoras, nos juntamos para crecer mental y emocionalmente junto con la actividad de la escritura terapéutica. Con este sitio puedes inscribirte a nuestros talleres semanales de escritura terapéutica." />
   <title>Escribo para sanar</title>
 
   <!-- Fonts -->
@@ -56,6 +57,8 @@
   </nav>
 
   {{ $header }}
+
+  {{ $top }}
 
   <div class="w-100 color-bg">
     <main class="container py-5">

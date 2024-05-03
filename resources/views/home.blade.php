@@ -8,13 +8,10 @@
         <div class="position-relative overflow-hidden flex-fill align-content-center">
           <div class="col-10 col-lg-6 my-5 text-left text-shadow">
             <p class="h3 fw-bold text-light">
-              Gracias a la escritura te desbloqueas, emocional y sensorialmente
+              Permíteme acompañarte en esta aventura de expresión emocional.
             </p>
             <p class="h5 text-light">
-              Aprendes a sentir y disfrutar las cosas que antes pasaban desapercibidas para ti.
-            </p>
-            <p class="h5 text-light">
-              Permíteme acompañarte en este proceso de escribir para sanar.
+              Taller en línea. Se abrirán dos grupos con cupo limitado.
             </p>
           </div>
         </div>
@@ -30,10 +27,53 @@
     </header>
   </x-slot>
 
+  <x-slot:top>
+    <section class="mt-5">
+      <div class="container">
+        <div class="card">
+          <div class="row m-auto p-0">
+            <div class="col-12 col-lg-6 p-0">
+              <img class="image-section" src="{{ asset('images/john-jennings-Aet6IBKXJSg-unsplash.jpg') }}">
+            </div>
+            <div class="col-12 col-lg-6 p-3 p-lg-5">
+              <h3 class="display-6 fw-bold lh-1 mb-4 mb-lg-5 text-primary text-center">¿Qué puedes esperar de este taller?</h3>
+              <ol class="entry-content">
+                <li class="d-flex align-items-center">
+                  <p class="m-0">
+                    Aprenderás a identificar, sentir y desahogar las emociones que has tenido reprimidas en tu interior.
+                  </p>
+                </li>
+                <hr>
+                <li class="d-flex align-items-center">
+                  <p class="m-0">
+                    Reconocerás el poder sanador de tus palabras.
+                  </p>
+                </li>
+                <hr>
+                <li class="d-flex align-items-center">
+                  <p class="m-0">
+                    Al escribir, aprenderás a desconectarte del ruido del exterior y del ruido de tus propios
+                    pensamientos.
+                  <p>
+                </li>
+                <hr>
+                <li class="d-flex align-items-center">
+                  <p class="m-0">
+                    Al escribir comenzarás a ordenar, lo que en tu mente parecía imposible de ordenar.
+                  </p>
+                </li>
+                <ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </x-slot>
+
   @if (isset($events) && count($events) > 0)
     <section class="row py-4 px-lg-4 p-lg-5 mb-lg-5">
-      <h1 class="display-6 fw-bold lh-1 mb-4 mb-lg-5 text-center">Siguientes talleres</h1>
-      <div class="card card col-11 col-lg-8 m-auto p-0 d-flex justify-content-center">
+      <h3 class="display-6 fw-bold lh-1 mb-4 mb-lg-5 text-center">Grupos y fechas:</h3>
+      <div class="card col-11 col-lg-8 m-auto p-0 d-flex justify-content-center">
         <ul class="list-group list-group-flush">
           @foreach ($events as $event)
             <li class="list-group-item list-group-item-action py-3">
