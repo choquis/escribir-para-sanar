@@ -36,7 +36,8 @@
               <img class="image-section" src="{{ asset('images/john-jennings-Aet6IBKXJSg-unsplash.jpg') }}">
             </div>
             <div class="col-12 col-lg-6 p-3 p-lg-5">
-              <h3 class="display-6 fw-bold lh-1 mb-4 mb-lg-5 text-primary text-center">¿Qué puedes esperar de este taller?</h3>
+              <h3 class="display-6 fw-bold lh-1 mb-4 mb-lg-5 text-primary text-center">¿Qué puedes esperar de este
+                taller?</h3>
               <ol class="entry-content">
                 <li class="d-flex align-items-center">
                   <p class="m-0">
@@ -112,10 +113,25 @@
   @endif
 
   <section class="row py-4 px-lg-4 p-lg-5">
-    <div class="col-lg-7 py-4">
-      <h3 class="fw-bold lh-1 mb-3">Puedes pasarme tu correo</h3>
-      <p class="col-lg-10 fs-4">
-        Para mantenernos en contacto
+    <div class="col-lg-7 py-4 text-center">
+      <h3 class="fw-bold lh-1 mb-3">Sigamos en contacto</h3>
+      <p class="col-lg-12 fs-4">
+        <i class="bi bi-whatsapp me-2"></i>
+        <a href="https://wa.me/5218122037426" style="text-decoration: none;">
+          <span class="mb-0">+52 1 81 2203 7426</span>
+        </a>
+      </p>
+      <p class="col-lg-12 fs-4">
+        <a href="https://www.instagram.com/mayte_herreral/" style="text-decoration: none;">
+          <i class="bi bi-instagram me-2"></i>
+          <span class="mb-0">@mayte_herreral</span>
+        </a>
+      </p>
+      <p class="col-lg-12 fs-4">
+        <i class="bi bi-envelope-at me-2"></i>
+        <a href="mailto:mayte.herrera2013@gmail.com" style="text-decoration: none;">
+          <span class="mb-0">mayte.herrera2013@gmail.com</span>
+        </a>
       </p>
     </div>
     <div class="col-lg-5 py-4 d-flex justify-content-center align-items-center">
@@ -125,7 +141,7 @@
           <input type="email" class="form-control" id="email" name="email" placeholder="nombre@ejemplo.com">
           <label for="email">Correo</label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Suscribir</button>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Suscríbete</button>
       </form>
     </div>
   </section>

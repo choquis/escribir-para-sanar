@@ -76,7 +76,7 @@
 
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
         <li class="ms-3">
-          <a href="#">
+          <a href="https://www.instagram.com/mayte_herreral/?hl=es#">
             <i class="bi bi-instagram text-secondary"></i>
           </a>
         </li>
