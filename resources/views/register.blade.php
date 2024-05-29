@@ -66,6 +66,18 @@
           </div>
           <p><small>Por favor compárteme tu nombre para identificarte en el taller y un correo para enviarte el recibo y
               las instrucciones de cómo ingresar al taller.</small></p>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="phone" name="phone" placeholder=""
+              value="{{ old('phone', '') }}">
+            <label for="phone">Teléfono</label>
+            @error('phone')
+              <span class="text-danger">
+                {{ $errors->first('phone') }}
+              </span>
+            @enderror
+          </div>
+          <p><small>
+              El teléfono es opcional pero nos ayuda a comunicarnos contigo para cualquier situación.</small></p>
         </div>
       </div>
       <div class="col-sm-12 col-md-5 col-lg-5 ps-0 ps-md-2">

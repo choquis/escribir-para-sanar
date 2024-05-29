@@ -11,6 +11,7 @@ window.paypal
         let eventId = eventOption.value;
         let name = document.getElementById('name').value;
         let email = document.getElementById('email').value;
+        let phone = document.getElementById('phone').value;
 
         const response = await fetch("/api/paypal/order", {
           method: "POST",
@@ -20,7 +21,8 @@ window.paypal
           body: JSON.stringify({
             eventId,
             name,
-            email
+            email,
+            phone
           }),
         });
 
@@ -110,8 +112,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   var rad = document.registration.eventId;
   var prev = null;
-  for (var i = 0; i < rad.length; i++) {
-    rad[i].addEventListener('change', function (e) {
+
+  if (rad && rad instanceof RadioNodeList) {
+    for (var i = 0; i < rad.length; i++) {
+      rad[i].addEventListener('change', function (e) {
+        (prev) ? prev.value : null;
+        if (this !== prev) {
+          prev = this;
+        }
+        toggleButtons(e.target.dataset.price);
+      });
+    }
+  }
+  else if (rad && rad instanceof HTMLElement) {
+    rad.addEventListener('change', function (e) {
       (prev) ? prev.value : null;
       if (this !== prev) {
         prev = this;

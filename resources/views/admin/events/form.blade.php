@@ -155,7 +155,7 @@
           <li class="list-group-item">
             <div class="row">
               <div class="col-8 d-flex align-items-center">
-                {{ $order->name }} / {{ $order->email->email }} <br />
+                {{ $order->name }} / {{ $order->email->email }} / {{ $order->email->phone }} <br />
                 {{ $order->status }}
               </div>
               <div class="col-4 d-flex align-items-center justify-content-end">

@@ -92,6 +92,7 @@ class OrderController extends Controller
         $order->email_id = $email_id;
         $order->event_id = $event_id;
         $order->name = $request->input('name');
+        $order->phone = $request->input('phone');
         $order->save();
 
         return to_route('ordenes.index')
