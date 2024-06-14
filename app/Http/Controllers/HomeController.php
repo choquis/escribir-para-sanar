@@ -41,6 +41,11 @@ class HomeController extends Controller
         ]);
     }
 
+    public function information(): View 
+    {
+        return view('information');
+    }
+
     public function registerComplete(Request $request)
     {
         return view('register-success');

@@ -13,6 +13,9 @@
             <p class="h5 text-light">
               Taller en línea. Se abrirán dos grupos con cupo limitado.
             </p>
+            <a class="link-secondary text-decoration-none" href="{{ route('information') }}">
+              Leer más...
+            </a>
           </div>
         </div>
         <div id="scroll-message" class="position-relative overflow-hidden align-self-center">
@@ -63,7 +66,7 @@
                     Al escribir comenzarás a ordenar, lo que en tu mente parecía imposible de ordenar.
                   </p>
                 </li>
-                <ol>
+              </ol>
             </div>
           </div>
         </div>
