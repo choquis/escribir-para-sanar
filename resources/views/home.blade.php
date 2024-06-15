@@ -13,7 +13,9 @@
             <p class="h5 text-light">
               Taller en línea. Se abrirán dos grupos con cupo limitado.
             </p>
-            <a class="link-secondary text-decoration-none" href="{{ route('information') }}">
+          </div>
+          <div class="col-10 col-lg-6 text-end text-shadow">
+            <a class="link-secondary text-decoration-none fs-5" href="{{ route('information') }}">
               Leer más...
             </a>
           </div>
