@@ -15,7 +15,7 @@
             </p>
           </div>
           <div class="col-10 col-lg-6 text-end text-shadow">
-            <a class="link-secondary text-decoration-none fs-5" href="{{ route('information') }}">
+            <a class="link-warning text-decoration-none fs-5" href="{{ route('information') }}">
               Leer más...
             </a>
           </div>
