@@ -14,26 +14,28 @@
           <div class="list-group list-group-radio d-grid gap-2 border-0">
 
             @foreach ($events as $event)
-              <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio" name="eventId"
-                  id="{{ 'eventId-' . $event->id }}" value="{{ $event->id }}" data-price="{{ $event->price }}"
-                  @checked(old('eventId', 0) == $event->id)>
-                <label class="list-group-item py-3 pe-5" for="{{ 'eventId-' . $event->id }}">
-                  <div class="row">
-                    <div class="col">
-                      <p class="h4 text-capitalize text-primary"><strong>{{ $event->name }}</strong></p>
-                      <p class="h4 text-capitalize text-primary">{{ $event->description }}</p>
-                      <p class="m-0 text-primary"><small>{{ $event->subdescription }}</small></p>
+              @if ($event->orders_count < $event->cap)
+                <div class="position-relative">
+                  <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio" name="eventId"
+                    id="{{ 'eventId-' . $event->id }}" value="{{ $event->id }}" data-price="{{ $event->price }}"
+                    @checked(old('eventId', 0) == $event->id)>
+                  <label class="list-group-item py-3 pe-5" for="{{ 'eventId-' . $event->id }}">
+                    <div class="row">
+                      <div class="col">
+                        <p class="h4 text-capitalize text-primary"><strong>{{ $event->name }}</strong></p>
+                        <p class="h4 text-capitalize text-primary">{{ $event->description }}</p>
+                        <p class="m-0 text-primary"><small>{{ $event->subdescription }}</small></p>
+                      </div>
+                      <div class="col-5 d-flex justify-content-end align-items-center">
+                        <p class="m-0 fs-3 lh-1 text-primary">$
+                          {{ (int) $event->price }}<sup
+                            class="fs-6 text-primary">{{ substr($event->price, -2) }}</sup><small class="fs-6">
+                            MXN</small></p>
+                      </div>
                     </div>
-                    <div class="col-5 d-flex justify-content-end align-items-center">
-                      <p class="m-0 fs-3 lh-1 text-primary">$
-                        {{ (int) $event->price }}<sup
-                          class="fs-6 text-primary">{{ substr($event->price, -2) }}</sup><small class="fs-6">
-                          MXN</small></p>
-                    </div>
-                  </div>
-                </label>
-              </div>
+                  </label>
+                </div>
+              @endif
             @endforeach
 
             @error('eventId')
@@ -77,7 +79,7 @@
             @enderror
           </div>
           <p><small>
-              El teléfono es opcional pero nos ayuda a comunicarnos contigo para cualquier situación.</small></p>
+              El teléfono nos ayuda a comunicarnos contigo para cualquier situación.</small></p>
         </div>
       </div>
       <div class="col-sm-12 col-md-5 col-lg-5 ps-0 ps-md-2">

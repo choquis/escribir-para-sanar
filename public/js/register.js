@@ -13,6 +13,8 @@ window.paypal
         let email = document.getElementById('email').value;
         let phone = document.getElementById('phone').value;
 
+        console.log({name, email, phone})
+
         const response = await fetch("/api/paypal/order", {
           method: "POST",
           headers: {

@@ -17,7 +17,7 @@
       <br />
       <p class="col-lg-10 fs-6 text-center w-100">
         Por favor revisa si el correo llegó a spam (como precacución) y si no recibiste el correo aún después de unos
-        minutos, no dudes en contactarnos al +52 1 81 2203 7426 y te reenvíaremos el correo o ponernos de acuerdo como enviarte
+        minutos, no dudes en contactarnos al +52 81 2203 7426 y te reenvíaremos el correo o ponernos de acuerdo como enviarte
         las instrucciones por algún otro medio de tu conveniencia.
         Solo identifícate con el correo o nombre, que nos enviaste al inscribirte.<br />
       </p>

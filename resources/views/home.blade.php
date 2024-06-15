@@ -82,23 +82,25 @@
       <div class="card col-11 col-lg-8 m-auto p-0 d-flex justify-content-center">
         <ul class="list-group list-group-flush">
           @foreach ($events as $event)
-            <li class="list-group-item list-group-item-action py-3">
-              <div class="row">
-                <div class="col-2 d-flex justify-content-end align-items-center">
-                  <i class="bi bi-calendar2-week fs-1 text-primary"></i>
+            @if ($event->orders_count < $event->cap)
+              <li class="list-group-item list-group-item-action py-3">
+                <div class="row">
+                  <div class="col-2 d-flex justify-content-end align-items-center">
+                    <i class="bi bi-calendar2-week fs-1 text-primary"></i>
+                  </div>
+                  <div class="col">
+                    <p class="h4 text-capitalize text-primary"><strong>{{ $event->name }}</strong></p>
+                    <p class="h4 text-capitalize text-primary">{{ $event->description }}</p>
+                    <p class="m-0"><small>{{ $event->subdescription }}</small></p>
+                  </div>
+                  <div class="col-3 d-flex justify-content-center align-items-center">
+                    <a class="btn btn-sm btn-outline-primary" href="{{ route('register') }}">
+                      Inscribir
+                    </a>
+                  </div>
                 </div>
-                <div class="col">
-                  <p class="h4 text-capitalize text-primary"><strong>{{ $event->name }}</strong></p>
-                  <p class="h4 text-capitalize text-primary">{{ $event->description }}</p>
-                  <p class="m-0"><small>{{ $event->subdescription }}</small></p>
-                </div>
-                <div class="col-3 d-flex justify-content-center align-items-center">
-                  <a class="btn btn-sm btn-outline-primary" href="{{ route('register') }}">
-                    Inscribir
-                  </a>
-                </div>
-              </div>
-            </li>
+              </li>
+            @endif
           @endforeach
         </ul>
       </div>
@@ -123,7 +125,7 @@
       <p class="col-lg-12 fs-4">
         <i class="bi bi-whatsapp me-2"></i>
         <a href="https://wa.me/5218122037426" style="text-decoration: none;">
-          <span class="mb-0">+52 1 81 2203 7426</span>
+          <span class="mb-0">+52 81 2203 7426</span>
         </a>
       </p>
       <p class="col-lg-12 fs-4">

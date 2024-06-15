@@ -157,7 +157,7 @@ class PayPalController extends Controller
             'eventId' => 'required|integer|numeric',
             'name' => 'required|max:255',
             'email' => 'required|max:255|email',
-            'phone' => 'max:255',
+            'phone' => 'required|max:255',
         ], [
             'eventId.required' => 'Se tiene que seleccinar un taller',
             'eventId.integer' => 'Taller id no es entero',
@@ -167,13 +167,14 @@ class PayPalController extends Controller
             'email.required' => 'Fecha requerida',
             'email.max' => 'Correo no puede tener mas de :max caracteres',
             'email.email' => 'Correo no tiene formato valido',
+            'phone.required' => 'Teléfono requerido',
             'phone.max' => 'El teléfono no puede tener mas de :max caracteres',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
                 'message' => 'Se debe seleccionar un taller <br> 
-                Se requiere el nombre y correo <br>
+                Se requiere el nombre, correo, teléfono <br>
                 y el correo que sea valido',
                 'messages' => $validator->errors()
             ], 400);
@@ -233,7 +234,7 @@ class PayPalController extends Controller
                 $newOrder->event_id = (int) $eventId;
                 $newOrder->email_id = (int) $email->id;
                 $newOrder->name = $name;
-                $newOrder->name = $phone;
+                $newOrder->phone = $phone;
                 $newOrder->save();
             }
         } catch (\Exception $e) {

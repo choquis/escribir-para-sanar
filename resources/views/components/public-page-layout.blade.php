@@ -71,7 +71,7 @@
     <div class="container d-flex flex-wrap justify-content-between align-items-center p-3">
       <div class="col-md-4 d-flex align-items-center">
         <i class="bi bi-whatsapp me-2"></i>
-        <span class="mb-0 text-white">+52 1 81 2203 7426</span>
+        <span class="mb-0 text-white">+52 81 2203 7426</span>
       </div>
 
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
