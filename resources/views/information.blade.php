@@ -9,12 +9,11 @@
     <h2 class="display-6 fw-bold lh-1 mb-4 mb-lg-5 text-primary">Información</h2>
     <div class="col-sm-12 col-lg-10 m-auto">
       <div class="mb-3 mb-lg-5 bg-light shadow-sm rounded">
-
         <div class="row m-auto p-0">
           <div class="col-12 col-lg-6 p-0">
-            <img class="image-section" src="{{ asset('images/john-jennings-Aet6IBKXJSg-unsplash.jpg') }}">
+            <img class="image-section" src="{{ asset('images/tyler-nix-q-motCAvPBM-unsplash.jpg') }}">
           </div>
-          <div class="col-12 col-lg-6 p-3 p-lg-5">
+          <div class="col-12 col-lg-6 p-3 p-lg-5 d-flex flex-column justify-content-center">
             <h3 class="fw-semibold mb-4">Escribo para Sanar: Taller de Escritura Terapéutica</h4>
               <p>
                 ¿Alguna vez has experimentado el poder curativo de la escritura? ¿Has sentido cómo las palabras pueden
@@ -32,14 +31,11 @@
               </p>
           </div>
         </div>
-
-
       </div>
     </div>
     <div class="col-sm-12 col-lg-10 m-auto">
       <div class="py-4 px-3 mb-3 mb-lg-5 bg-light shadow-sm rounded">
         <h3 class="fw-semibold mb-4">Beneficios</h4>
-
           <ol class="entry-content">
             <li class="d-flex align-items-center">
               <p class="m-0">Aprenderás técnicas de escritura terapéutica que te ayudarán a explorar y procesar tus
@@ -66,12 +62,21 @@
       </div>
     </div>
     <div class="col-sm-12 col-lg-10 m-auto">
-      <div class="py-4 px-3 mb-3 mb-lg-5 bg-light shadow-sm rounded">
-        <h3 class="fw-semibold mb-4">¿Por qué este taller es diferente? </h4>
-          <p>Nuestro enfoque combina la escritura creativa con principios terapéuticos probados para proporcionar una
-            experiencia transformadora y profundamente sanadora. Nos centramos en el proceso de escritura en lugar del
-            producto final, fomentando la autoexploración y el autocuidado.
-          </p>
+      <div class="mb-3 mb-lg-5 bg-light shadow-sm rounded">
+        <div class="row m-auto p-0">
+          <div class="col-12 col-lg-6 p-3 p-lg-5 d-flex flex-column justify-content-center">
+            <h3 class="fw-semibold mb-4">¿Por qué este taller es diferente?</h4>
+              <p>
+                Nuestro enfoque combina la escritura creativa con principios terapéuticos probados para proporcionar una
+                experiencia transformadora y profundamente sanadora. Nos centramos en el proceso de escritura en lugar
+                del
+                producto final, fomentando la autoexploración y el autocuidado.
+              </p>
+          </div>
+          <div class="col-12 col-lg-6 p-0">
+            <img class="image-section" src="{{ asset('images/toa-heftiba-QnUywvDdI1o-unsplash.jpg') }}">
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-sm-12 col-lg-10 m-auto">
