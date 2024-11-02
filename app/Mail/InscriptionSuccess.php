@@ -42,6 +42,7 @@ class InscriptionSuccess extends Mailable
     {
         return new Content(
             view: 'mails.inscription-success',
+            text: 'mails.inscription-success-text'
         );
     }
 

@@ -94,6 +94,9 @@
             </button>
           </diV>
           <div id="paypal-button-container" hidden=""></div>
+          <div id="paypal-waiting-container" hidden="">
+            Por favor espera un poco, ya casi terminamos...
+          </div>
         </div>
       </div>
     </form>

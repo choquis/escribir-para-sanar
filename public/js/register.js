@@ -62,6 +62,7 @@ window.paypal
             "Content-Type": "application/json",
           },
         });
+        toggleW8Message(true);
         const orderData = await response.json();
         // Three cases to handle:
         //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
@@ -96,6 +97,7 @@ window.paypal
           `Disculpa, no se pudo procesar el pago...<br><br>${error}`,
         );
       }
+      toggleW8Message(false);
     },
   })
   .render("#paypal-button-container");
@@ -157,6 +159,13 @@ function toggleButtons(price) {
   if (firstMessage) {
     firstMessage.hidden = true;
   }
+}
+
+function toggleW8Message(show = true) {
+  const paypalContainer = document.getElementById('paypal-button-container');
+  const w8Container = document.getElementById('paypal-waiting-container');
+  if (paypalContainer) paypalContainer.hidden = !show;
+  if (w8Container) paypalContainer.hidden = show;
 }
 
 function checkNavbar() {

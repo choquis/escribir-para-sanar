@@ -7,6 +7,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+use App\Mail\InscriptionSuccess;
+use App\Models\Order;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/inscribir', [HomeController::class, 'register'])->name('register');
@@ -43,4 +45,16 @@ Route::prefix('admin')->group(function () {
             'ordenes' => OrderController::class
         ]);
     });
+
+    Route::get('preview-mail/{orderId}', function ($orderId) {
+        $order = Order::where('order_key', '=', $orderId)->first();
+        try {
+            // Mail::to($order->email->email)->send(new InscriptionSuccess($order));
+        } catch (\Exception $e) {
+            Log::error("La captura de la orden " . $orderId . " se completo, pero ocurrio un problema
+            al enviar el correo.");
+            Log::error($e->getMessage() . " - " . $e->getTraceAsString());
+        }
+        return new InscriptionSuccess($order);
+       });
 });
