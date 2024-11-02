@@ -4,7 +4,6 @@
     </IfModule>
 
     RewriteEngine On
-    DirectoryIndex index.html
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
