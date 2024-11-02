@@ -49,7 +49,7 @@ Route::prefix('admin')->group(function () {
     Route::get('preview-mail/{orderId}', function ($orderId) {
         $order = Order::where('order_key', '=', $orderId)->first();
         try {
-            // Mail::to($order->email->email)->send(new InscriptionSuccess($order));
+            Mail::to($order->email->email)->send(new InscriptionSuccess($order));
         } catch (\Exception $e) {
             Log::error("La captura de la orden " . $orderId . " se completo, pero ocurrio un problema
             al enviar el correo.");
