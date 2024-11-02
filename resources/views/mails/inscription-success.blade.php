@@ -24,6 +24,11 @@
           style="border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
           <tbody>
             <tr>
+              <td align="center">
+                <img src="https://mayteherrera.com/images/taller-email.jpg">
+              </td>
+            </tr>
+            <tr>
               <td style="padding-top:30px;mso-line-height-alt: 19.2px;font-size:1px;"></td>
             </tr>
             <tr>
