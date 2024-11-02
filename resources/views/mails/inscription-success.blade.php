@@ -192,7 +192,7 @@
                               align="left">
 
                               <div style="font-size: 14px; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                <p style="line-height: 140%;">{{ $order->event->mailContent }}</p>
+                                <p style="line-height: 140%;">{!! $order->event->mailContent !!}</p>
                               </div>
 
                             </td>

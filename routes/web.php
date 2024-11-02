@@ -14,6 +14,7 @@ Route::post('/inscribir', [HomeController::class, 'registerCreation'])->name('re
 Route::get('/inscribir/completado', [HomeController::class, 'registerComplete'])->name('register-complete');
 Route::post('/suscribir', [HomeController::class, 'subscribe'])->name('subscribe');
 Route::get('/suscribir/completado', [HomeController::class, 'subscribeComplete'])->name('subscribe-complete');
+Route::get('/mas-informacion', [HomeController::class, 'information'])->name('information');
 
 Route::prefix('admin')->group(function () {
     Route::get(

@@ -10,6 +10,7 @@ use App\Models\Email;
 use App\Models\Order;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class HomeController extends Controller
@@ -17,7 +18,12 @@ class HomeController extends Controller
     public function home(): View
     {
         $todayutc = Carbon::createFromTimestampUTC(time());
-        $events = Event::where('hide', '=', 0)
+        $events = Event::withCount([
+            'orders' => function (Builder $query) {
+                $query->where('status', '=', 'COMPLETED');
+            }
+        ])
+            ->where('hide', '=', 0)
             ->where('date', '>=', $todayutc)
             ->orderBy('date', 'asc')
             ->limit(8)
@@ -30,7 +36,12 @@ class HomeController extends Controller
     public function register(): View
     {
         $todayutc = Carbon::createFromTimestampUTC(time());
-        $events = Event::where('hide', '=', 0)
+        $events = Event::withCount([
+            'orders' => function (Builder $query) {
+                $query->where('status', '=', 'COMPLETED');
+            }
+        ])
+            ->where('hide', '=', 0)
             ->where('date', '>=', $todayutc)
             ->orderBy('date', 'asc')
             ->limit(8)
@@ -39,6 +50,11 @@ class HomeController extends Controller
         return view('register', [
             'events' => $events
         ]);
+    }
+
+    public function information(): View
+    {
+        return view('information');
     }
 
     public function registerComplete(Request $request)
@@ -52,6 +68,7 @@ class HomeController extends Controller
             'eventId' => 'required|integer|numeric',
             'name' => 'required|max:255',
             'email' => 'required|max:255|email',
+            'phone' => 'max:255',
         ], [
             'eventId.required' => 'Se tiene que seleccinar un taller',
             'eventId.integer' => 'Taller id no es entero',
@@ -61,6 +78,8 @@ class HomeController extends Controller
             'email.required' => 'Necesitamos un correo',
             'email.max' => 'Correo no puede tener mas de :max caracteres',
             'email.email' => 'Correo no tiene formato valido',
+            'phone.required' => 'Teléfono requerido',
+            'phone.max' => 'El teléfono no puede tener mas de :max caracteres',
         ]);
 
         if ($validator->fails()) {
@@ -73,6 +92,7 @@ class HomeController extends Controller
         $eventId = $request->get("eventId");
         $name = $request->get('name');
         $currMail = $request->get('email');
+        $phone = $request->get('phone');
         $ignoreCap = $request->get('ignoreCap');
 
         $event = Event::find($eventId);
@@ -108,21 +128,19 @@ class HomeController extends Controller
 
         $email = Email::where('email', '=', $currMail)->first();
         if ($email == null) {
-            try {
-                $email = new Email;
-                $email->email = $currMail;
-                $email->name = $name;
-                $email->save();
-            } catch (\Exception $e) {
-                Log::error($e->getMessage() . " - " . $e->getTraceAsString());
-                return back()
-                    ->with([
-                        'notification-warning' => 'Disculpe las molestias, pero parece que tenemos un problema
-                        registrando su correo. <br> Puede tratar nuevamente en unos minutos'
-                    ])
-                    ->withInput();
-                ;
-            }
+            $email = new Email;
+            $email->email = $currMail;
+            $email->name = $name;
+        }
+        $email->phone = $phone;
+        try {
+            $email->save();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage() . " - " . $e->getTraceAsString());
+            return response()->json([
+                'message' => 'Disculpe las molestias, pero parece que tenemos un problema registrando su correo. <br>
+                Puede tratar nuevamente en unos minutos'
+            ], 500);
         }
 
         $newOrder = Order::where('email_id', '=', $email->id)
@@ -149,6 +167,7 @@ class HomeController extends Controller
             $newOrder->response = NULL;
             $newOrder->event_id = (int) $event->id;
             $newOrder->email_id = (int) $email->id;
+            $newOrder->phone = $phone;
             $newOrder->name = $name;
             $newOrder->save();
         } catch (\Exception $e) {
@@ -186,12 +205,14 @@ class HomeController extends Controller
             ;
         }
         $currMail = $request->get('email');
+        $phone = $request->get('phone');
         $email = Email::where('email', '=', $currMail)->first();
         try {
             if ($email == null) {
                 $email = new Email;
                 $email->email = $currMail;
                 $email->name = '';
+                $email->phone = $phone;
             }
             $email->newsletter = true;
             $email->save();

@@ -15,7 +15,7 @@
           <tr>
             <th scope="col"> ID </th>
             <th scope="col"> Estado </th>
-            <th scope="col"> Nombre/Correo </th>
+            <th scope="col"> Nombre/Correo/Teléfono </th>
             <th scope="col"> Taller </th>
             <th scope="col"></th>
           </tr>
@@ -27,7 +27,8 @@
               <td>{{ $order->status }}</td>
               <td>
                 {{ $order->name }}<br />
-                {{ $order->email->email }}
+                {{ $order->email->email }}<br />
+                {{ $order->phone }}
               </td>
               <td>
                 {{ $order->event->name }}<br />

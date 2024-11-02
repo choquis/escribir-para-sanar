@@ -49,7 +49,7 @@ class EventController extends Controller
             }
         ])
             ->orderBy('date', 'desc')
-            ->paginate(3);
+            ->paginate(20);
 
         return view('admin.events.list', [
             'events' => $events
@@ -79,6 +79,8 @@ class EventController extends Controller
 
         $event = new Event;
         $event->name = $request->input('name');
+        $event->description = $request->input('description');
+        $event->subdescription = $request->input('subdescription');
         $date = new Carbon($request->input('date') . ' ' . $request->input('time') . ':00', 'America/Monterrey');
         $date->setTimezone('UTC');
         $event->date = $date;
@@ -130,6 +132,8 @@ class EventController extends Controller
         }
 
         $event->name = $request->input('name');
+        $event->description = $request->input('description');
+        $event->subdescription = $request->input('subdescription');
         $date = new Carbon($request->input('date') . ' ' . $request->input('time') . ':00', 'America/Monterrey');
         $date->setTimezone('UTC');
         $event->date = $date;

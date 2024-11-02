@@ -11,6 +11,7 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
 
 
 class DashboardController extends Controller
@@ -28,7 +29,12 @@ class DashboardController extends Controller
             ->get();
 
         $todayutc = Carbon::createFromTimestampUTC(time());
-        $next_events = Event::where('hide', '=', 0)
+        $next_events = Event::withCount([
+            'orders' => function (Builder $query) {
+                $query->where('status', '=', 'COMPLETED');
+            }
+        ])
+            ->where('hide', '=', 0)
             ->where('date', '>=', $todayutc)
             ->orderBy('date', 'asc')
             ->limit(8)

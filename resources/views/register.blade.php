@@ -2,6 +2,8 @@
   <x-slot:header>
     <div class="my-5"></div>
   </x-slot>
+  <x-slot:top>
+  </x-slot>
 
   <section class="row">
     <form class="row g-0" method="POST" action="{{ route('register') }}" name="registration">
@@ -12,25 +14,28 @@
           <div class="list-group list-group-radio d-grid gap-2 border-0">
 
             @foreach ($events as $event)
-              <div class="position-relative">
-                <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio" name="eventId"
-                  id="{{ 'eventId-' . $event->id }}" value="{{ $event->id }}" data-price="{{ $event->price }}"
-                  @checked(old('eventId', 0) == $event->id)>
-                <label class="list-group-item py-3 pe-5" for="{{ 'eventId-' . $event->id }}">
-                  <div class="row">
-                    <div class="col">
-                      <p class="h4 text-capitalize text-primary">{{ str_replace('.', '', $event->formatted_date) }}</p>
-                      <p class="m-0 text-primary"><small>{{ $event->formatted_time }}</small></p>
+              @if ($event->orders_count < $event->cap)
+                <div class="position-relative">
+                  <input class="form-check-input position-absolute top-50 end-0 me-3 fs-5" type="radio" name="eventId"
+                    id="{{ 'eventId-' . $event->id }}" value="{{ $event->id }}" data-price="{{ $event->price }}"
+                    @checked(old('eventId', 0) == $event->id)>
+                  <label class="list-group-item py-3 pe-5" for="{{ 'eventId-' . $event->id }}">
+                    <div class="row">
+                      <div class="col">
+                        <p class="h4 text-capitalize text-primary"><strong>{{ $event->name }}</strong></p>
+                        <p class="h4 text-capitalize text-primary">{{ $event->description }}</p>
+                        <p class="m-0 text-primary"><small>{{ $event->subdescription }}</small></p>
+                      </div>
+                      <div class="col-5 d-flex justify-content-end align-items-center">
+                        <p class="m-0 fs-3 lh-1 text-primary">$
+                          {{ (int) $event->price }}<sup
+                            class="fs-6 text-primary">{{ substr($event->price, -2) }}</sup><small class="fs-6">
+                            MXN</small></p>
+                      </div>
                     </div>
-                    <div class="col-5 d-flex justify-content-end align-items-center">
-                      <p class="m-0 fs-3 lh-1 text-primary">$
-                        {{ (int) $event->price }}<sup class="fs-6 text-primary">{{ substr($event->price, -2) }}</sup><small
-                          class="fs-6">
-                          MXN</small></p>
-                    </div>
-                  </div>
-                </label>
-              </div>
+                  </label>
+                </div>
+              @endif
             @endforeach
 
             @error('eventId')
@@ -61,8 +66,20 @@
               </span>
             @enderror
           </div>
-          <p><small>Por favor proporcionanos un nombre para identificarte en el taller y un correo para envíarte el recibo
-              y las instrucciones de como acceder al taller.</small></p>
+          <p><small>Por favor compárteme tu nombre para identificarte en el taller y un correo para enviarte el recibo y
+              las instrucciones de cómo ingresar al taller.</small></p>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="phone" name="phone" placeholder=""
+              value="{{ old('phone', '') }}">
+            <label for="phone">Teléfono</label>
+            @error('phone')
+              <span class="text-danger">
+                {{ $errors->first('phone') }}
+              </span>
+            @enderror
+          </div>
+          <p><small>
+              El teléfono nos ayuda a comunicarnos contigo para cualquier situación.</small></p>
         </div>
       </div>
       <div class="col-sm-12 col-md-5 col-lg-5 ps-0 ps-md-2">
@@ -82,9 +99,7 @@
     </form>
   </section>
   @push('scripts')
-    <script
-      src="https://www.paypal.com/sdk/js?client-id=ARDMSehyX6QutbsOaFohkzFzTLbpimoZ3hOSbuG8CyUB-RohY9TArnp0IXKdxZoz_hTYd8IlTKy_I478&currency=MXN">
-    </script>
+    <script src="https://www.paypal.com/sdk/js?client-id={{ env('PAYPAL_ID') }}&currency=MXN"></script>
     <script src="{{ asset('js/register.js') }}"></script>
   @endpush
 </x-public-page-layout>

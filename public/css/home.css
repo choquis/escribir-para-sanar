@@ -1,155 +1,211 @@
 /* BrotherSignature Regular */
 @font-face {
-  font-family: "BrotherSignature";
-  src: url('../fonts/BrotherSignature-7BWnK.otf') format(opentype);
-  font-weight: normal;
-  font-style: normal;
+    font-family: "BrotherSignature";
+    src: url('../fonts/BrotherSignature-7BWnK.otf') format(opentype);
+    font-weight: normal;
+    font-style: normal;
 }
 
 .font-sans {
-  font-family: 'Alexandria', sans-serif;
+    font-family: 'Alexandria', sans-serif;
 }
 
 .font-cursive {
-  font-family: 'BrotherSignature', sans-serif;
+    font-family: 'BrotherSignature', sans-serif;
 }
 
 html,
 body {
-  height: 100svh;
-  margin: 0;
+    height: 100svh;
+    margin: 0;
 }
 
 footer .bi {
-  font-size: 1.425rem;
+    font-size: 1.425rem;
 }
 
 /**
 * LIST GROUP
 */
 .list-group {
-  width: 100%;
+    width: 100%;
 }
 
 [contenteditable]:focus {
-  outline: 0;
+    outline: 0;
 }
 
 .list-group-radio .list-group-item {
-  cursor: pointer;
-  border-radius: .5rem;
+    cursor: pointer;
+    border-radius: .5rem;
 }
 
 .list-group-radio .form-check-input {
-  z-index: 2;
-  margin-top: -.5em;
+    z-index: 2;
+    margin-top: -.5em;
 }
 
 .list-group-radio .list-group-item:hover,
 .list-group-radio .list-group-item:focus {
-  background-color: var(--bs-secondary-bg);
+    background-color: var(--bs-secondary-bg);
 }
 
 .list-group-radio .form-check-input:checked+.list-group-item {
-  background-color: var(--bs-secondary);
-  border-color: var(--bs-primary);
-  box-shadow: 0 0 0 2px var(--bs-primary);
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 2px var(--bs-primary);
 }
 
 .list-group-radio .form-check-input[disabled]+.list-group-item,
 .list-group-radio .form-check-input:disabled+.list-group-item {
-  pointer-events: none;
-  filter: none;
-  opacity: .5;
+    pointer-events: none;
+    filter: none;
+    opacity: .5;
 }
 
 .transparent-navbar {
-  background-color: transparent;
-  border: none;
-  border-color: var(--bs-primary);
-  box-shadow: none;
-  transition: all 0.125s ease-in;
+    background-color: transparent;
+    border: none;
+    border-color: var(--bs-primary);
+    box-shadow: none;
+    transition: all 0.125s ease-in;
 }
 
 .transparent-navbar.opaque {
-  background-color: var(--bs-primary) !important;
-  border: var(--bs-border-width) var(--bs-border-style) var(--bs-primary) !important;
-  box-shadow: var(--bs-box-shadow-sm) !important;
+    background-color: var(--bs-primary) !important;
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-primary) !important;
+    box-shadow: var(--bs-box-shadow-sm) !important;
 }
 
 .simple-logo {
-  font-size: 2.375rem;
-  color: var(--bs-white);
-  transition: all 0.125s ease-in;
+    font-size: 4.25rem;
+    color: var(--bs-white);
+    transition: all 0.125s ease-in;
 }
 
 .simple-logo.black {
-  font-size: 2rem;
-  color: var(--bs-white);
+    font-size: 2.375rem;
+    color: var(--bs-white);
 }
 
 .header-block {
-  width: 100%;
-  height: 100dvh;
+    width: 100%;
+    height: 100dvh;
 }
 
 .header-image {
-  position: absolute;
-  object-fit: cover;
-  z-index: -1;
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .bg-color {
-  /*background: -webkit-linear-gradient(0deg, rgb(126, 126, 126) 50%, rgb(0, 0, 0) 100%);*/
-  /*background: linear-gradient(0deg, rgb(126, 126, 126) 50%, rgb(0, 0, 0) 100%);*/
-  /*background: linear-gradient(0deg, rgb(221, 213, 152) 50%, rgb(0, 0, 0) 100%);*/
-  background: rgb(162, 149, 113);
+    /*background: -webkit-linear-gradient(0deg, rgb(126, 126, 126) 50%, rgb(0, 0, 0) 100%);*/
+    /*background: linear-gradient(0deg, rgb(126, 126, 126) 50%, rgb(0, 0, 0) 100%);*/
+    /*background: linear-gradient(0deg, rgb(221, 213, 152) 50%, rgb(0, 0, 0) 100%);*/
+    background: rgb(162, 149, 113);
 }
 
 .mask {
-  position: absolute;
-  background: #000000;
-  background: -webkit-linear-gradient(0deg, var(--bs-black) 0%, rgba(0, 0, 0, 0) 50%, var(--bs-primary) 100%);
-  background: linear-gradient(0deg, var(--bs-black) 0%, rgba(0, 0, 0, 0) 50%, var(--bs-primary) 100%);
-  z-index: -1;
+    position: absolute;
+    background: #000000;
+    background: -webkit-linear-gradient(0deg, var(--bs-black) 0%, rgba(0, 0, 0, 0) 50%, var(--bs-primary) 100%);
+    background: linear-gradient(0deg, var(--bs-black) 0%, rgba(0, 0, 0, 0) 50%, var(--bs-primary) 100%);
+    z-index: -1;
 }
 
 .text-shadow {
-  text-shadow: 1px 1px 5px black;
+    text-shadow: 1px 1px 5px black;
 }
 
 .gray1 {
-  background: color-mix(in srgb, var(--custom-gray) 10%, white)
+    background: color-mix(in srgb, var(--custom-gray) 10%, white)
 }
 
 .gray2 {
-  background: color-mix(in srgb, var(--custom-gray) 20%, white)
+    background: color-mix(in srgb, var(--custom-gray) 20%, white)
 }
 
 .gray3 {
-  background: color-mix(in srgb, var(--custom-gray) 30%, white)
+    background: color-mix(in srgb, var(--custom-gray) 30%, white)
 }
 
 .gray4 {
-  background: color-mix(in srgb, var(--custom-gray) 40%, white)
+    background: color-mix(in srgb, var(--custom-gray) 40%, white)
 }
 
 .gray5 {
-  background: var(--custom-gray);
+    background: var(--custom-gray);
 }
 
 .gray6 {
-  background: color-mix(in srgb, var(--custom-gray) 40%, black)
+    background: color-mix(in srgb, var(--custom-gray) 40%, black)
 }
 
 .gray7 {
-  background: color-mix(in srgb, var(--custom-gray) 30%, black)
+    background: color-mix(in srgb, var(--custom-gray) 30%, black)
 }
 
 .gray8 {
-  background: color-mix(in srgb, var(--custom-gray) 20%, black)
+    background: color-mix(in srgb, var(--custom-gray) 20%, black)
 }
 
 .gray9 {
-  background: color-mix(in srgb, var(--custom-gray) 10%, black)
+    background: color-mix(in srgb, var(--custom-gray) 10%, black)
+}
+
+
+.header-image-responsivnes {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+}
+
+.image-section {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (orientation:portrait) {
+    /* Portrait styles */
+}
+
+@media screen and (orientation:landscape) {
+    .header-image-responsivnes {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: initial;
+    }
+}
+
+
+
+ol.entry-content {
+    counter-reset: li;
+    list-style: none;
+}
+
+ol.entry-content li {
+    position: relative;
+    padding-left: 60px;
+    min-height: 48px;
+}
+
+ol.entry-content li:before {
+    content: counter(li);
+    counter-increment: li;
+    color: var(--bs-primary);
+    font-size: 1.5rem;
+    width: 60px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

@@ -17,12 +17,14 @@ class EmailController extends Controller
         'email.required' => 'Correo requerido',
         'email.max' => 'Correo no puede tener mas de :max caracteres',
         'email.email' => 'Correo invalido',
-        'email.unique' => 'Ya esta registrado este correo'
+        'email.unique' => 'Ya esta registrado este correo',
+        'phone.max' => 'El teléfono no puede tener mas de :max caracteres',
     ];
 
     private $rules = [
         'name' => 'required|max:255',
         'email' => 'required|max:255|email|unique:emails,email',
+        'phone' => 'max:255',
     ];
 
     /**
@@ -32,7 +34,7 @@ class EmailController extends Controller
     {
         session(['email:index' => url()->full()]);
         $emails = Email::orderBy('name', 'asc')
-            ->paginate(3);
+            ->paginate(20);
 
         return view('admin.emails.list', [
             'emails' => $emails
@@ -63,6 +65,7 @@ class EmailController extends Controller
         $email = new Email;
         $email->name = $request->input('name');
         $email->email = $request->input('email');
+        $email->phone = $request->input('phone');
         if ($request->has('newsletter'))
             $email->newsletter = 1;
         else
@@ -119,6 +122,7 @@ class EmailController extends Controller
 
         $email->name = $request->input('name');
         $email->email = $request->input('email');
+        $email->phone = $request->input('phone');
         if ($request->has('newsletter'))
             $email->newsletter = 1;
         else

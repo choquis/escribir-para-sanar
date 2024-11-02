@@ -157,6 +157,7 @@ class PayPalController extends Controller
             'eventId' => 'required|integer|numeric',
             'name' => 'required|max:255',
             'email' => 'required|max:255|email',
+            'phone' => 'required|max:255',
         ], [
             'eventId.required' => 'Se tiene que seleccinar un taller',
             'eventId.integer' => 'Taller id no es entero',
@@ -166,12 +167,14 @@ class PayPalController extends Controller
             'email.required' => 'Fecha requerida',
             'email.max' => 'Correo no puede tener mas de :max caracteres',
             'email.email' => 'Correo no tiene formato valido',
+            'phone.required' => 'Teléfono requerido',
+            'phone.max' => 'El teléfono no puede tener mas de :max caracteres',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
                 'message' => 'Se debe seleccionar un taller <br> 
-                Se requiere el nombre y correo <br>
+                Se requiere el nombre, correo, teléfono <br>
                 y el correo que sea valido',
                 'messages' => $validator->errors()
             ], 400);
@@ -180,6 +183,7 @@ class PayPalController extends Controller
         $eventId = $request->get("eventId");
         $name = $request->get('name');
         $currMail = $request->get('email');
+        $phone = $request->get('phone');
         $ignoreCap = $request->get('ignoreCap');
 
         $event = Event::find($eventId);
@@ -198,18 +202,19 @@ class PayPalController extends Controller
 
         $email = Email::where('email', '=', $currMail)->first();
         if ($email == null) {
-            try {
-                $email = new Email;
-                $email->email = $currMail;
-                $email->name = $name;
-                $email->save();
-            } catch (\Exception $e) {
-                Log::error($e->getMessage() . " - " . $e->getTraceAsString());
-                return response()->json([
-                    'message' => 'Disculpe las molestias, pero parece que tenemos un problema registrando su correo. <br>
-                    Puede tratar nuevamente en unos minutos'
-                ], 500);
-            }
+            $email = new Email;
+            $email->email = $currMail;
+            $email->name = $name;
+        }
+        $email->phone = $phone;
+        try {
+            $email->save();
+        } catch (\Exception $e) {
+            Log::error($e->getMessage() . " - " . $e->getTraceAsString());
+            return response()->json([
+                'message' => 'Disculpe las molestias, pero parece que tenemos un problema registrando su correo. <br>
+                Puede tratar nuevamente en unos minutos'
+            ], 500);
         }
 
         $description = "Inscripción al taller de " . $name . " " . $event->name;
@@ -229,6 +234,7 @@ class PayPalController extends Controller
                 $newOrder->event_id = (int) $eventId;
                 $newOrder->email_id = (int) $email->id;
                 $newOrder->name = $name;
+                $newOrder->phone = $phone;
                 $newOrder->save();
             }
         } catch (\Exception $e) {

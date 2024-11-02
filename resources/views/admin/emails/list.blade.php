@@ -19,6 +19,7 @@
           <tr>
             <th scope="col"> Nombre </th>
             <th scope="col"> Correo </th>
+            <th scope="col"> Teléfono </th>
             <th scope="col"> Suscrito </th>
             <th scope="col"></th>
           </tr>
@@ -28,6 +29,7 @@
             <tr>
               <td>{{ $email->name }}</td>
               <td>{{ $email->email }}</td>
+              <td>{{ $email->phone }}</td>
               <td>{{ $email->newsletter ? 'Sí' : 'No' }}</td>
               <td>
                 <a class="btn btn-sm btn-outline-secondary align-items-center"

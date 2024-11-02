@@ -132,6 +132,18 @@
     </div>
     <div class="offset-sm-0 offset-md-6 offset-lg-8"></div>
 
+    <div class="col-sm-12 col-md-6 col-lg-4 my-3">
+      <label for="phone" class="form-label">Teléfono</label>
+      <input type="text" class="form-control" id="phone" name="phone"
+        value="{{ isset($order) ? old('phone', $order->phone) : old('phone') }}">
+      @error('phone')
+        <span class="text-danger">
+          {{ $errors->first('phone') }}
+        </span>
+      @enderror
+    </div>
+    <div class="offset-sm-0 offset-md-6 offset-lg-8"></div>
+
     <div class="col-12 mt-5 d-flex justify-content-end">
       <button type="submit" class="btn btn-primary py-2 px-4">
         {{ isset($order) ? 'Actualizar' : 'Guardar' }}

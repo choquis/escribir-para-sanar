@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Escribir para sanar</title>
+  <meta name="description"
+    content="Nosotros somos un grupo de escritores y escritoras, nos juntamos para crecer mental y emocionalmente junto con la actividad de la escritura terapéutica. Con este sitio puedes inscribirte a nuestros talleres semanales de escritura terapéutica." />
+  <title>Escribo para sanar</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
@@ -38,7 +39,7 @@
         -->
       <a id="logo" class="navbar-brand col-lg-3 me-0 d-flex align-items-center font-cursive simple-logo"
         href="{{ route('home') }}">
-        Escribir para sanar
+        Escribo para sanar
       </a>
       <!-- Menu central
         <div class="collapse navbar-collapse justify-content-md-center" id="navbar">
@@ -57,6 +58,8 @@
 
   {{ $header }}
 
+  {{ $top }}
+
   <div class="w-100 color-bg">
     <main class="container py-5">
       {{ $slot }}
@@ -68,12 +71,12 @@
     <div class="container d-flex flex-wrap justify-content-between align-items-center p-3">
       <div class="col-md-4 d-flex align-items-center">
         <i class="bi bi-whatsapp me-2"></i>
-        <span class="mb-0 text-white">+52 1 81 2203 7426</span>
+        <span class="mb-0 text-white">+52 81 2203 7426</span>
       </div>
 
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
         <li class="ms-3">
-          <a href="#">
+          <a href="https://www.instagram.com/mayte_herreral/?hl=es#">
             <i class="bi bi-instagram text-secondary"></i>
           </a>
         </li>
